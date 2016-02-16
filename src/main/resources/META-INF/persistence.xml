@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:orm="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
+    <persistence-unit name="demo:PostgresqlProject:1.0" transaction-type="JTA">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>jdbc/prueba</jta-data-source>
+        <class>demo.Element</class>
+        <class>org.drools.persistence.info.SessionInfo</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <!--property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/prueba"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.username" value="postgres"/>
+            <property name="hibernate.connection.password" value="postgres"/ -->
+            <!-- property name="hibernate.hbm2ddl.auto" value="create-drop"/ -->
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.transaction.manager_lookup_class"
+                      value="org.hibernate.transaction.BTMTransactionManagerLookup"/>
+        </properties>
+    </persistence-unit>
+</persistence>
